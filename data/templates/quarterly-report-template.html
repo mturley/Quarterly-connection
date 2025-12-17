@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{QUARTER}} {{YEAR}} Quarterly Connection Summary</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700;900&family=Red+Hat+Text:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --rh-red: #ee0000;
+        --rh-red-dark: #a30000;
+        --rh-black: #151515;
+        --rh-gray-dark: #3c3f42;
+        --rh-gray-medium: #6a6e73;
+        --rh-gray-light: #d2d2d2;
+        --rh-white: #ffffff;
+        --rh-blue: #0066cc;
+        --rh-teal: #009596;
+        --rh-green: #3e8635;
+        --rh-orange: #f0ab00;
+        --rh-purple: #5e40be;
+        --gradient-primary: linear-gradient(135deg, #ee0000 0%, #a30000 100%);
+        --gradient-dark: linear-gradient(135deg, #151515 0%, #3c3f42 100%);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Red Hat Text", -apple-system, BlinkMacSystemFont,
+          sans-serif;
+        background: #f5f5f5;
+        color: var(--rh-black);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      /* Header */
+      .header {
+        background: var(--gradient-dark);
+        color: var(--rh-white);
+        padding: 3rem 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40%;
+        height: 100%;
+        background: var(--gradient-primary);
+        clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+      }
+
+      .header-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .header h1 {
+        font-family: "Red Hat Display", sans-serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .header .subtitle {
+        font-size: 1.25rem;
+        opacity: 0.9;
+        font-weight: 400;
+      }
+
+      .header .period {
+        display: inline-block;
+        background: var(--rh-red);
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        margin-top: 1rem;
+        font-weight: 600;
+      }
+
+      /* Stats Grid */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        margin: -2rem 0 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .stat-card {
+        background: var(--rh-white);
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        border-top: 4px solid var(--rh-red);
+        transition: transform 0.2s ease;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .stat-card:nth-child(2) {
+        border-top-color: var(--rh-teal);
+      }
+      .stat-card:nth-child(3) {
+        border-top-color: var(--rh-blue);
+      }
+      .stat-card:nth-child(4) {
+        border-top-color: var(--rh-green);
+      }
+
+      .stat-number {
+        font-family: "Red Hat Display", sans-serif;
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: var(--rh-black);
+      }
+
+      .stat-label {
+        font-size: 0.875rem;
+        color: var(--rh-gray-medium);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-top: 0.25rem;
+      }
+
+      /* Section */
+      .section {
+        background: var(--rh-white);
+        border-radius: 8px;
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid var(--rh-gray-light);
+      }
+
+      .section-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--gradient-primary);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.25rem;
+      }
+
+      .section-title {
+        font-family: "Red Hat Display", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--rh-black);
+      }
+
+      /* Achievement List */
+      .achievement-list {
+        list-style: none;
+      }
+
+      .achievement-item {
+        display: flex;
+        gap: 1rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--rh-gray-light);
+      }
+
+      .achievement-item:last-child {
+        border-bottom: none;
+      }
+
+      .achievement-bullet {
+        width: 8px;
+        height: 8px;
+        background: var(--rh-red);
+        border-radius: 50%;
+        margin-top: 0.5rem;
+        flex-shrink: 0;
+      }
+
+      .achievement-content h4 {
+        font-weight: 600;
+        color: var(--rh-black);
+        margin-bottom: 0.25rem;
+      }
+
+      .achievement-content p {
+        color: var(--rh-gray-medium);
+        font-size: 0.95rem;
+      }
+
+      /* Values */
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
+      .value-card {
+        background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+        border-radius: 8px;
+        padding: 1.5rem;
+        border-left: 4px solid var(--rh-red);
+      }
+
+      .value-card h4 {
+        font-family: "Red Hat Display", sans-serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--rh-red);
+        margin-bottom: 0.5rem;
+      }
+
+      .value-card p {
+        color: var(--rh-gray-dark);
+        font-size: 0.95rem;
+      }
+
+      /* PR Table */
+      .pr-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .pr-table th {
+        background: var(--rh-black);
+        color: var(--rh-white);
+        padding: 1rem;
+        text-align: left;
+        font-weight: 600;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .pr-table td {
+        padding: 1rem;
+        border-bottom: 1px solid var(--rh-gray-light);
+        vertical-align: top;
+      }
+
+      .pr-table tr:hover td {
+        background: #fafafa;
+      }
+
+      .pr-number {
+        font-family: "Red Hat Display", sans-serif;
+        font-weight: 700;
+        color: var(--rh-blue);
+      }
+
+      .pr-title {
+        font-weight: 500;
+      }
+
+      .pr-date {
+        color: var(--rh-gray-medium);
+        font-size: 0.875rem;
+        white-space: nowrap;
+      }
+
+      /* Jira Section */
+      .jira-section-title {
+        font-family: "Red Hat Display", sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--rh-black);
+        margin: 1.5rem 0 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .jira-section-title:first-of-type {
+        margin-top: 0;
+      }
+
+      /* Jira Cards */
+      .jira-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .jira-card {
+        background: #fafafa;
+        border-radius: 8px;
+        padding: 1rem 1.25rem;
+        border-left: 4px solid var(--rh-teal);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .jira-card.epic {
+        border-left-color: var(--rh-purple);
+      }
+
+      .jira-card.completed {
+        border-left-color: var(--rh-green);
+      }
+
+      .jira-key {
+        font-family: "Red Hat Display", sans-serif;
+        font-weight: 700;
+        color: var(--rh-teal);
+        font-size: 0.875rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .jira-card.epic .jira-key {
+        color: var(--rh-purple);
+      }
+
+      .jira-card.completed .jira-key {
+        color: var(--rh-green);
+      }
+
+      .jira-summary {
+        font-weight: 500;
+        color: var(--rh-black);
+        font-size: 0.95rem;
+      }
+
+      .jira-status {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      .status-done {
+        background: #e8f5e9;
+        color: var(--rh-green);
+      }
+
+      .status-progress {
+        background: #fff3e0;
+        color: #e65100;
+      }
+
+      .status-new {
+        background: #e3f2fd;
+        color: var(--rh-blue);
+      }
+
+      /* Growth Section */
+      .growth-card {
+        background: linear-gradient(135deg, var(--rh-purple) 0%, #7b5fc7 100%);
+        color: white;
+        border-radius: 12px;
+        padding: 2rem;
+      }
+
+      .growth-card h3 {
+        font-family: "Red Hat Display", sans-serif;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .growth-card p {
+        font-size: 1rem;
+        opacity: 0.95;
+        line-height: 1.7;
+      }
+
+      .growth-list {
+        list-style: none;
+        margin-top: 1rem;
+      }
+
+      .growth-list li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+      }
+
+      .growth-list li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        opacity: 0.8;
+      }
+
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 2rem;
+        color: var(--rh-gray-medium);
+        font-size: 0.875rem;
+      }
+
+      .footer .red-hat-logo {
+        color: var(--rh-red);
+        font-family: "Red Hat Display", sans-serif;
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      /* Print Styles */
+      @media print {
+        body {
+          background: white;
+        }
+        .header::before {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .stat-card,
+        .section,
+        .value-card,
+        .jira-card,
+        .growth-card {
+          break-inside: avoid;
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .values-grid,
+        .jira-grid {
+          grid-template-columns: 1fr;
+        }
+        .header h1 {
+          font-size: 1.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container header-content">
+        <h1>Quarterly Connection Summary</h1>
+        <p class="subtitle">{{USER_NAME}} • {{USER_TITLE}}</p>
+        <span class="period">{{QUARTER}} {{YEAR}} • {{QUARTER_MONTHS}}</span>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">{{PRS_MERGED}}</div>
+          <div class="stat-label">PRs Merged</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">{{EPICS_OWNED}}</div>
+          <div class="stat-label">Epics Owned</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">{{TICKETS_RESOLVED}}</div>
+          <div class="stat-label">Tickets Resolved</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">{{EPICS_COMPLETED}}</div>
+          <div class="stat-label">Epics Completed</div>
+        </div>
+      </div>
+
+      <!-- Key Achievements -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-icon">🎯</div>
+          <h2 class="section-title">Key Achievements & Impact</h2>
+        </div>
+        <ul class="achievement-list">
+          {{#each ACHIEVEMENTS}}
+          <li class="achievement-item">
+            <div class="achievement-bullet"></div>
+            <div class="achievement-content">
+              <h4>{{this.title}}</h4>
+              <p>{{this.description}}</p>
+            </div>
+          </li>
+          {{/each}}
+        </ul>
+      </section>
+
+      <!-- Values Alignment -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-icon">❤️</div>
+          <h2 class="section-title">Alignment with {{COMPANY_NAME}} Values</h2>
+        </div>
+        <div class="values-grid">
+          {{#each VALUES_ALIGNMENT}}
+          <div class="value-card">
+            <h4>{{this.value}}</h4>
+            <p>{{this.example}}</p>
+          </div>
+          {{/each}}
+        </div>
+      </section>
+
+      <!-- GitHub Activity -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-icon">💻</div>
+          <h2 class="section-title">GitHub Contributions</h2>
+        </div>
+        <table class="pr-table">
+          <thead>
+            <tr>
+              <th>PR</th>
+              <th>Title</th>
+              <th>Merged</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each TOP_PRS}}
+            <tr>
+              <td><span class="pr-number">#{{this.number}}</span></td>
+              <td class="pr-title">{{this.title}}</td>
+              <td class="pr-date">{{this.merged_date}}</td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Jira Activity -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-icon">📋</div>
+          <h2 class="section-title">Jira Epics & Tickets</h2>
+        </div>
+
+        <h4 class="jira-section-title">🎯 Epics Owned</h4>
+        <div class="jira-grid">
+          {{#each TOP_EPICS}}
+          <div class="jira-card {{this.card_class}}">
+            <div>
+              <div class="jira-key">{{this.key}}</div>
+              <div class="jira-summary">{{this.summary}}</div>
+            </div>
+            <span class="jira-status {{this.status_class}}"
+              >{{this.status}}</span
+            >
+          </div>
+          {{/each}}
+        </div>
+
+        <h4 class="jira-section-title">✅ Key Tickets Resolved</h4>
+        <div class="jira-grid">
+          {{#each TOP_TICKETS}}
+          <div class="jira-card {{this.card_class}}">
+            <div>
+              <div class="jira-key">{{this.key}}</div>
+              <div class="jira-summary">{{this.summary}}</div>
+            </div>
+            <span class="jira-status {{this.status_class}}"
+              >{{this.status}}</span
+            >
+          </div>
+          {{/each}}
+        </div>
+      </section>
+
+      <!-- Growth -->
+      <section
+        class="section"
+        style="background: transparent; box-shadow: none; padding: 0"
+      >
+        <div class="growth-card">
+          <h3>🚀 Looking Ahead: {{NEXT_QUARTER}} Goals</h3>
+          <p>{{NEXT_QUARTER_GOAL}}</p>
+          <ul class="growth-list">
+            {{#each GROWTH_ITEMS}}
+            <li>{{this}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p class="red-hat-logo">{{COMPANY_NAME}}</p>
+      <p style="margin-top: 0.5rem">
+        Generated on {{GENERATION_DATE}} • Quarterly Connection Summary
+      </p>
+    </footer>
+  </body>
+</html>

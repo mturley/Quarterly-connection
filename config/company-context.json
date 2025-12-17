@@ -1,0 +1,67 @@
+{
+  "company": {
+    "name": "Red Hat",
+    "initialized": true,
+    "last_updated": "2025-12-08"
+  },
+  "core_values": [
+    {
+      "name": "Freedom",
+      "description": "Encouraging the free exchange of opinions, ideas, and expertise to fuel growth and progress"
+    },
+    {
+      "name": "Accountability",
+      "description": "Maintaining transparency and holding oneself accountable to customers, shareholders, and communities"
+    },
+    {
+      "name": "Courage",
+      "description": "Embracing challenges and trusting in the principles of freedom"
+    },
+    {
+      "name": "Commitment",
+      "description": "Staying dedicated to goals, believing in the approach, and seeing innovations through to completion"
+    }
+  ],
+  "strategic_priorities": {
+    "year": 2025,
+    "priorities": [
+      "Hybrid Cloud Platforms Acceleration - Focusing on accelerating adoption and innovation in hybrid cloud platforms",
+      "Enabling Customer AI Innovation - Investing in AI with ecosystem support to drive customer innovation",
+      "Growth through Simplified Hybrid Cloud - Co-creating and engaging collaboratively with customers"
+    ]
+  },
+  "user_profile": {
+    "name": "Purva Naik",
+    "role": "Software Engineer",
+    "team": "OpenShift AI Dashboard",
+    "manager": null,
+    "start_date": null,
+    "jira_email": "pnaik@redhat.com",
+    "jira_projects": ["RHOAIENG", "RHAIENG"]
+  },
+  "github": {
+    "author": "pnaik1",
+    "repositories": [
+      {
+        "owner": "opendatahub-io",
+        "repo": "odh-dashboard"
+      }
+    ]
+  },
+  "career_goals": {
+    "short_term": [
+      "Lead more cross-functional initiatives",
+      "Complete Gen AI 3.0 platform delivery"
+    ],
+    "long_term": [
+      "Grow into technical leadership role",
+      "Become subject matter expert in AI/ML platforms"
+    ],
+    "skills_to_develop": [
+      "System design and architecture",
+      "Technical writing and documentation",
+      "Stakeholder communication"
+    ],
+    "quarter": "Q4 2025"
+  }
+}

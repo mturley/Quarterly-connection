@@ -246,69 +246,61 @@ After generating the markdown report, AUTOMATICALLY create an HTML version:
 
 1. **Output File:** `Q[N]-[YEAR]-report.html` (e.g., `Q4-2025-report.html`)
 2. **Location:** Project root directory
-3. **Template:** Use the HTML template structure defined in `data/templates/quarterly-report-template.html`
 
-**HTML Report Features:**
-- Professional Red Hat branded design (or company-appropriate branding)
-- Stats dashboard with key metrics (PRs merged, Epics owned, Tickets resolved, Epics completed)
-- Sections: Key Achievements, Values Alignment, GitHub Contributions, Jira Epics & Tickets, Looking Ahead
-- Responsive layout for mobile/tablet viewing
-- Print-friendly styles
+**⚠️ CRITICAL: ALWAYS READ THE TEMPLATE FILE FIRST**
 
-**HTML Structure to Generate:**
+Before generating HTML, you MUST:
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Q[N] [YEAR] Quarterly Connection Summary</title>
-    <!-- Include Google Fonts for Red Hat Display/Text -->
-    <style>
-        /* CSS Variables for theming */
-        :root {
-            --primary-color: #EE0000;      /* Red Hat Red */
-            --primary-dark: #A30000;
-            --text-dark: #151515;
-            --text-medium: #6A6E73;
-            --text-light: #D2D2D2;
-            --bg-light: #F5F5F5;
-            --white: #FFFFFF;
-            --accent-blue: #0066CC;
-            --accent-teal: #009596;
-            --accent-green: #3E8635;
-            --accent-purple: #5E40BE;
-        }
-        /* Include comprehensive styling for:
-           - Header with gradient background
-           - Stats cards grid
-           - Section cards with icons
-           - Achievement lists
-           - Values grid cards
-           - PR/Commit table
-           - Jira ticket cards
-           - Growth section with gradient
-           - Footer
-           - Responsive breakpoints
-           - Print styles
-        */
-    </style>
-</head>
-<body>
-    <!-- Header: Name, Title, Quarter Period -->
-    <!-- Stats Grid: 4 key metrics -->
-    <!-- Key Achievements Section -->
-    <!-- Values Alignment Section -->
-    <!-- GitHub Contributions Table -->
-    <!-- Jira Epics & Tickets Grid -->
-    <!-- Looking Ahead / Growth Section -->
-    <!-- Footer with generation date -->
-</body>
-</html>
-```
+1. **READ** `data/templates/quarterly-report-template.html` to get the exact CSS and HTML structure
+2. **COPY** all CSS styles from the template exactly as written
+3. **REPLACE** template placeholders (e.g., `{{USER_NAME}}`, `{{PRS_MERGED}}`) with actual data
+4. **DO NOT** create custom CSS or deviate from the template design
+
+**Template Location:** `data/templates/quarterly-report-template.html`
+
+**Template Placeholders to Replace:**
+
+| Placeholder            | Replace With                             |
+| ---------------------- | ---------------------------------------- |
+| `{{USER_NAME}}`        | User's name from config                  |
+| `{{USER_TITLE}}`       | User's role from config                  |
+| `{{QUARTER}}`          | Q1, Q2, Q3, or Q4                        |
+| `{{YEAR}}`             | Year (e.g., 2025)                        |
+| `{{QUARTER_MONTHS}}`   | Month range (e.g., "October – December") |
+| `{{COMPANY_NAME}}`     | Company name from config                 |
+| `{{PRS_MERGED}}`       | Count of merged PRs                      |
+| `{{EPICS_OWNED}}`      | Count of epics owned                     |
+| `{{TICKETS_RESOLVED}}` | Count of resolved tickets                |
+| `{{EPICS_COMPLETED}}`  | Count of completed epics                 |
+| `{{NEXT_QUARTER}}`     | Next quarter (e.g., "Q1 2026")           |
+| `{{GENERATION_DATE}}`  | Current date                             |
+
+**Template CSS Features (DO NOT MODIFY):**
+
+- Red Hat brand colors (--rh-red: #ee0000, etc.)
+- Dark gradient header with red diagonal clip-path accent
+- Stats cards with colored top borders (red, teal, blue, green)
+- Section icons with gradient backgrounds
+- Values grid with red left border
+- PR table with black header row
+- Jira cards with purple (epic) / green (completed) borders
+- Purple gradient growth section
+- Responsive and print-friendly styles
+
+**Jira Card Classes:**
+
+- `.epic` = purple border (for in-progress epics)
+- `.completed` = green border (for done/resolved items)
+- Default = teal border
+
+**Status Badge Classes:**
+
+- `.status-done` = green badge
+- `.status-progress` = orange badge
+- `.status-new` = blue badge
 
 **After HTML generation:**
+
 - Confirm: "✅ Report generated in Markdown and HTML formats."
 - Provide path to HTML file
 - → STOP
@@ -349,23 +341,23 @@ After generating the markdown report, AUTOMATICALLY create an HTML version:
 
 **Commands work with or without the `/` prefix.** Both `help` and `/help` are valid.
 
-| Command                        | Action                                              | Then              |
-| ------------------------------ | --------------------------------------------------- | ----------------- |
-| `/help` or `help`              | Show all available commands with examples           | STOP              |
-| `/setup` or `setup`            | Initialize company context                          | STOP after saving |
-| `/profile` or `profile`        | Update user profile (name, role, team)              | STOP after saving |
-| `/log` or `log`                | Append to log file                                  | STOP              |
-| `/edit` or `edit log`          | Show numbered log entries, allow edit/delete        | STOP after edit   |
-| `/logs` or `show logs` or `/show-log` | Display log entries                           | STOP              |
-| `/logs Q2 2025`                | Display logs for specific quarter                   | STOP              |
-| `/status` or `status`          | Show quarter info + quick counts                    | STOP              |
-| `/stats` or `stats`            | Show detailed metrics (PRs, tickets, logs) - no narrative | STOP         |
-| `/preview` or `preview`        | Fetch all data, show summary - don't generate report | STOP             |
-| `/goals` or `goals`            | Set or view career goals for current quarter        | STOP              |
-| `/report` or `report`          | Run report workflow + generate HTML (current quarter) | STOP after output |
-| `/report Q1 2025`              | Run report for specific quarter + generate HTML    | STOP after output |
-| `/compare Q3 Q4`               | Compare metrics between two quarters                | STOP              |
-| `/export` or `export pdf`      | Instructions to convert HTML report to PDF          | STOP              |
+| Command                               | Action                                                    | Then              |
+| ------------------------------------- | --------------------------------------------------------- | ----------------- |
+| `/help` or `help`                     | Show all available commands with examples                 | STOP              |
+| `/setup` or `setup`                   | Initialize company context                                | STOP after saving |
+| `/profile` or `profile`               | Update user profile (name, role, team)                    | STOP after saving |
+| `/log` or `log`                       | Append to log file                                        | STOP              |
+| `/edit` or `edit log`                 | Show numbered log entries, allow edit/delete              | STOP after edit   |
+| `/logs` or `show logs` or `/show-log` | Display log entries                                       | STOP              |
+| `/logs Q2 2025`                       | Display logs for specific quarter                         | STOP              |
+| `/status` or `status`                 | Show quarter info + quick counts                          | STOP              |
+| `/stats` or `stats`                   | Show detailed metrics (PRs, tickets, logs) - no narrative | STOP              |
+| `/preview` or `preview`               | Fetch all data, show summary - don't generate report      | STOP              |
+| `/goals` or `goals`                   | Set or view career goals for current quarter              | STOP              |
+| `/report` or `report`                 | Run report workflow + generate HTML (current quarter)     | STOP after output |
+| `/report Q1 2025`                     | Run report for specific quarter + generate HTML           | STOP after output |
+| `/compare Q3 Q4`                      | Compare metrics between two quarters                      | STOP              |
+| `/export` or `export pdf`             | Instructions to convert HTML report to PDF                | STOP              |
 
 ---
 
@@ -443,27 +435,29 @@ When user says "stats", fetch metrics WITHOUT generating a narrative report:
 2. Fetch Jira data (ONE call)
 3. Count local log entries
 4. Display:
+
    ```
    📊 Q4 2025 QUICK STATS
-   
+
    GitHub Activity
    ├─ PRs Merged: 13
    ├─ Commits: 45
    └─ Issues Closed: 8
-   
+
    Jira Activity
    ├─ Epics Owned: 10
    ├─ Epics Completed: 7
    ├─ Tickets Resolved: 25
    └─ Story Points: ~50
-   
+
    Local Logs
    ├─ Achievements: 5
    ├─ Challenges: 2
    ├─ Collaborations: 3
    └─ Total Entries: 12
    ```
-→ STOP (no questions, no report generation)
+
+   → STOP (no questions, no report generation)
 
 ---
 
@@ -473,24 +467,26 @@ When user says "preview", fetch all data and show what would go into the report:
 
 1. Fetch all data sources (GitHub, Jira, logs)
 2. Display organized preview:
+
    ```
    🔍 REPORT PREVIEW - Q4 2025
-   
+
    📁 LOCAL LOGS (12 entries)
    [Shows first 5 entries with dates]
-   
+
    💻 GITHUB PRS (13 merged)
    [Shows all PR titles with numbers]
-   
+
    📋 JIRA EPICS (10 found)
    [Shows epic summaries with status]
-   
+
    📋 JIRA TICKETS (25 found)
    [Shows ticket summaries with status]
-   
+
    ✅ Ready to generate report. Say "report" to continue.
    ```
-→ STOP (does NOT auto-generate report)
+
+   → STOP (does NOT auto-generate report)
 
 ---
 
@@ -499,25 +495,29 @@ When user says "preview", fetch all data and show what would go into the report:
 When user says "goals" or "goals set":
 
 **View goals (default):**
+
 1. Read `config/company-context.json`
 2. Display:
+
    ```
    🎯 CAREER GOALS
-   
+
    Short-term (This Quarter):
    • {goal 1}
    • {goal 2}
-   
+
    Long-term (This Year):
    • {goal 1}
-   
+
    Skills to Develop:
    • {skill 1}
    • {skill 2}
    ```
-→ STOP
+
+   → STOP
 
 **Set goals ("goals set"):**
+
 1. Ask: "What are your goals for this quarter? (List 2-3)"
 2. Ask: "Any skills you want to develop?"
 3. Save to `career_goals` in config → STOP
@@ -530,15 +530,17 @@ When user says "edit log":
 
 1. Read current quarter's log file
 2. Display numbered entries:
+
    ```
    📝 Q4 2025 LOG ENTRIES
-   
+
    1. [2025-12-08] | Achievement | Shipped new auth service
    2. [2025-12-05] | Challenge | Fixed production outage
    3. [2025-12-01] | Collaboration | Mentored new team member
-   
+
    Enter number to edit/delete, or "cancel":
    ```
+
 3. If user provides number:
    - Show entry
    - Ask: "Edit (e) or Delete (d)?"
@@ -555,19 +557,21 @@ When user says "compare Q3 Q4" or "compare Q2 Q3 2025":
 1. Parse quarters to compare
 2. Fetch stats for BOTH quarters (can be parallel)
 3. Display comparison:
+
    ```
    📊 QUARTER COMPARISON: Q3 vs Q4 2025
-   
+
    Metric               Q3        Q4      Change
    ─────────────────────────────────────────────
    PRs Merged           8         13      +62% ⬆️
    Epics Completed      4         7       +75% ⬆️
    Tickets Resolved     18        25      +39% ⬆️
    Log Entries          6         12      +100% ⬆️
-   
+
    🔥 Q4 shows strong growth across all metrics!
    ```
-→ STOP
+
+   → STOP
 
 ---
 
@@ -576,6 +580,7 @@ When user says "compare Q3 Q4" or "compare Q2 Q3 2025":
 When user says "export pdf":
 
 Display instructions:
+
 ```
 📄 EXPORT TO PDF
 
@@ -595,6 +600,7 @@ Upload to https://www.ilovepdf.com/html-to-pdf
 
 💡 The HTML report is print-optimized and will look great as PDF!
 ```
+
 → STOP
 
 ---

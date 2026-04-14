@@ -9,6 +9,7 @@ Initialize or update the Quarterly Connection Strategist configuration.
 Read `config/company-context.json`.
 
 - If it exists and `initialized: true`, display current settings:
+
   ```
   ⚙️ CURRENT CONFIGURATION
 
@@ -19,6 +20,7 @@ Read `config/company-context.json`.
 
   What would you like to update? (company / profile / github / jira / all)
   ```
+
   **→ STOP. Wait for user's choice before proceeding.**
 
 - If missing or `initialized: false`, say "No config found — let's set it up." and go to Step 2.
@@ -30,31 +32,41 @@ Read `config/company-context.json`.
 Ask each question and wait for the answer before asking the next.
 
 **Company:**
+
 ```
 🏢 What company do you work for?
 ```
+
 After their answer → do ONE web search: `{company} company values mission`
 Show the values you found and ask: "Does this look right, or would you like to adjust anything?"
 Wait for confirmation before continuing.
 
 **Profile:**
+
 ```
 👤 What is your full name?
 ```
+
 Wait → then:
+
 ```
 📋 What is your role/title?
 ```
+
 Wait → then:
+
 ```
 🏠 What team are you on?
 ```
 
 **GitHub:**
+
 ```
-💻 What is your GitHub username? (used to filter PRs — e.g., "pnaik1")
+💻 What is your GitHub username? (used to filter PRs)
 ```
+
 Wait → then:
+
 ```
 📦 Which repositories should I track?
    Format: owner/repo — you can list multiple separated by commas.
@@ -62,10 +74,13 @@ Wait → then:
 ```
 
 **Jira:**
+
 ```
 📧 What is your Jira email address?
 ```
+
 Wait → then:
+
 ```
 🎫 Which Jira project keys should I search? (optional — e.g., "RHOAIENG, RHAIENG")
    Press Enter to skip.

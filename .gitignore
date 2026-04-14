@@ -1,3 +1,6 @@
+# Personal config (contains sensitive info: email, credentials, personal data)
+config/company-context.json
+
 # Generated reports (open HTML in browser, or use /export for PDF)
 *-report.html
 

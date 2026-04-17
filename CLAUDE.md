@@ -71,6 +71,7 @@ All command behavior lives in `.claude/skills/`. When the user types a command (
 | File | Purpose |
 |------|---------|
 | `config/company-context.json` | Company values, user profile, GitHub/Jira credentials |
+| `config/competencies.json` | Company competency framework with behaviors and indicators |
 | `data/achievements/{YEAR}/Q{N}_log.md` | Manual achievement log |
 | `data/templates/quarterly-report-template.html` | HTML report template (read before generating HTML) |
 | `data/templates/quarterly-report-template.md` | Markdown report template |

@@ -20,13 +20,16 @@ Set these values once and use them throughout:
 
 ## Step 1 — Load Configuration
 
-Read `config/company-context.json` once.
+Read `config/company-context.json` and `config/competencies.json` once.
 
-Extract:
+Extract from `company-context.json`:
 - `github.author`, `github.repositories`
 - `user_profile.jira_email`
 - `user_profile.name`, `user_profile.role`, `user_profile.team`
 - `company.name`, `core_values`, `strategic_priorities`
+
+Extract from `competencies.json`:
+- Full competency framework (categories, behaviors, indicators) — used in Step 4 to map achievements to competencies
 
 **If config is missing or not initialized:**
 > "Config not found. Run `/setup` first to configure GitHub, Jira, and your profile."
@@ -121,9 +124,11 @@ For each goal, include:
 - Due date: last day of this quarter ({END})
 - Red Hat strategic alignment
 
-## III. Alignment with {company} Values
+## III. Alignment with {company} Values & Competencies
 
 Connect specific work from this quarter to {company} core values. Write one paragraph per value (2–4 values). Use concrete examples from PRs and Jira tickets — not generic statements.
+
+Then, map key achievements to the most relevant competency behaviors from `competencies.json`. For each behavior cited, reference the specific work that demonstrates it. Focus on 3–5 competency behaviors where the quarter's work provides the strongest evidence — don't try to cover all of them.
 
 ## IV. Data-Driven Evidence
 
@@ -153,7 +158,7 @@ The HTML report must include these sections in order:
 2. **Stats Grid** — PRs merged, epics owned, tickets resolved, epics completed
 3. **Key Achievements & Accomplishments** — narrative paragraphs (What → How → Impact)
 4. **Q{N} {YEAR} Performance Goals** — 2–3 SMART goal cards showing what was set and accomplished this quarter, with status badge (Completed / In Progress), due date, and strategic alignment tags. Add CSS for `.goal-card`, `.goal-meta`, `.goal-tag`, `.tag-due`, `.tag-aligns`, `.tag-status-completed`, `.tag-status-inprogress` if not already in the template.
-5. **Alignment with {company} Values** — value cards with concrete examples
+5. **Alignment with {company} Values & Competencies** — value cards with concrete examples, plus competency behavior cards showing 3–5 behaviors demonstrated this quarter
 6. **GitHub Contributions** — full PR table with links
 7. **Jira Epics & Tickets** — epics grid + resolved tickets grid
 8. **Looking Ahead** — purple growth card summarizing Q{NEXT_N} focus

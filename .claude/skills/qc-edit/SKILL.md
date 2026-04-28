@@ -17,7 +17,7 @@ Read `data/achievements/{YEAR}/Q{N}_log.md` for current quarter.
 ### Step 2: Display Numbered Entries
 
 ```
-Q{N} {YEAR} LOG ENTRIES
+📝 Q{N} {YEAR} LOG ENTRIES
 
 1. [2025-12-15] | Achievement | Shipped new dashboard feature
 2. [2025-12-14] | Challenge | Fixed critical production bug
@@ -49,14 +49,14 @@ Enter the new text for this entry:
 (Keep the same date and category, or include new ones)
 ```
 - Update the entry in the file
-- Confirm: "Entry updated!"
+- Confirm: "✅ Entry updated!"
 
 **If Delete (d):**
 ```
 Are you sure you want to delete this entry? (yes/no)
 ```
 - If yes, remove the entry from the file
-- Confirm: "Entry deleted!"
+- Confirm: "✅ Entry deleted!"
 
 **If Cancel (c):**
 - "Cancelled. No changes made."

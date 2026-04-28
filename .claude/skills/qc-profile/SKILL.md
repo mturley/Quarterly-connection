@@ -17,13 +17,13 @@ Read `config/company-context.json` and extract user_profile section.
 ### Step 2: Display Current Profile
 
 ```
-YOUR PROFILE
+👤 YOUR PROFILE
 
 Name: {name or "Not set"}
 Role: {role or "Not set"}
 Team: {team or "Not set"}
 
-Integrations:
+🔗 Integrations:
 GitHub: {github_username or "Not configured"}
 Jira: {jira_email or "Not configured"}
 
@@ -45,7 +45,7 @@ Wait for user response:
 
 After updating:
 ```
-Profile updated!
+✅ Profile updated!
 
 Name: {name}
 Role: {role}

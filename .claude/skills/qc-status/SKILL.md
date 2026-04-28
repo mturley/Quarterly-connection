@@ -29,28 +29,28 @@ Read `config/company-context.json` to verify setup status.
 ### Step 4: Display Status
 
 ```
-QUARTERLY CONNECTION STATUS
+📅 QUARTERLY CONNECTION STATUS
 
 Current Quarter: Q{N} {YEAR}
 Period: {start_date} - {end_date}
 Days Remaining: {days_until_quarter_end}
 
-Log Entries (Q{N}):
-  Achievements: {count}
-  Challenges: {count}
-  Collaborations: {count}
-  Skill Development: {count}
-  Project Updates: {count}
-  Recognition: {count}
-  Total: {total}
+📝 Log Entries (Q{N}):
+├─ Achievements: {count}
+├─ Challenges: {count}
+├─ Collaborations: {count}
+├─ Skill Development: {count}
+├─ Project Updates: {count}
+├─ Recognition: {count}
+└─ Total: {total}
 
-Configuration:
-  Company: {company_name or "Not set"}
-  GitHub: {username or "Not configured"}
-  Jira: {email or "Not configured"}
-  Profile: {name or "Not set"}
+⚙️ Configuration:
+├─ Company: {company_name or "Not set"}
+├─ GitHub: {username or "Not configured"}
+├─ Jira: {email or "Not configured"}
+└─ Profile: {name or "Not set"}
 
-Quick Actions:
+💡 Quick Actions:
    /qc-log - Add an achievement
    /qc-report - Generate quarterly report
    /qc-setup - Update configuration

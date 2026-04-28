@@ -11,47 +11,47 @@ Display all available commands and how to use the Quarterly Connection Strategis
 When the user runs this command, display a comprehensive help guide:
 
 ```
-QUARTERLY CONNECTION COMMANDS
+📚 QUARTERLY CONNECTION COMMANDS
 
-GETTING STARTED
+🚀 GETTING STARTED
   /qc-setup             - Configure company values & integrations
   /qc-profile           - Update your name, role, team
   /qc-status            - See current quarter & entry counts
 
-LOGGING
+📝 LOGGING
   /qc-log <description> - Add an achievement (auto-categorized)
   /qc-log [Category]: <description>  - Add with specific category
   /qc-logs              - View current quarter's entries
   /qc-logs Q2 2025      - View specific quarter's entries
   /qc-edit              - Edit or delete existing entries
 
-REPORTING
+📊 REPORTING
   /qc-preview           - See all data before generating report
   /qc-stats             - Quick metrics (no narrative)
   /qc-report            - Generate full quarterly report
   /qc-report Q3 2025    - Generate report for specific quarter
   /qc-compare Q3 Q4     - Compare two quarters side-by-side
 
-GOALS
+🎯 GOALS
   /qc-goals             - View current career goals
   /qc-goals set         - Set new goals for the quarter
 
-EXPORT
+📤 EXPORT
   /qc-export            - Get instructions for PDF export
 
-EXAMPLES
+💡 EXAMPLES
   /qc-log Shipped new auth service reducing latency by 40%
   /qc-log [Challenge]: Fixed production outage in 15 minutes
   /qc-report Q3 2024
   /qc-compare Q2 Q3 2025
 
-LOG CATEGORIES
-  Achievement - Completed milestones, shipped features
-  Challenge - Blockers overcome, problems solved
-  Skill Development - New skills learned, training
-  Collaboration - Cross-team work, mentorship
-  Project Update - Status updates, progress
-  Recognition - Awards, positive feedback
+📁 LOG CATEGORIES
+  • Achievement - Completed milestones, shipped features
+  • Challenge - Blockers overcome, problems solved
+  • Skill Development - New skills learned, training
+  • Collaboration - Cross-team work, mentorship
+  • Project Update - Status updates, progress
+  • Recognition - Awards, positive feedback
 
 Need more details? Just ask about any command!
 ```

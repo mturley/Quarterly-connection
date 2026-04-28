@@ -76,11 +76,11 @@ assignee = "{jira_email}" AND issuetype IN (Story, Task, Bug) AND resolution IS 
 Display what was found, then continue directly to report generation — no questions asked.
 
 ```
-{QUARTER} {YEAR} Data Summary ({MONTHS}):
-   Local Logs:      {N} entries
-   GitHub PRs:      {N} merged
-   Jira Epics:      {N} found ({N} completed)
-   Jira Tickets:    {N} resolved
+📊 {QUARTER} {YEAR} Data Summary ({MONTHS}):
+   • Local Logs:      {N} entries
+   • GitHub PRs:      {N} merged
+   • Jira Epics:      {N} found ({N} completed)
+   • Jira Tickets:    {N} resolved
 
 Generating your report now…
 ```
@@ -116,7 +116,7 @@ For each goal, include:
 - How success is measured
 - Status: Completed / In Progress (reflect what was actually achieved this quarter)
 - Due date: last day of this quarter ({END})
-- Strategic alignment
+- Red Hat strategic alignment
 
 ## III. Alignment with {company} Values & Competencies
 
@@ -151,11 +151,11 @@ The HTML report must include these sections in order:
 1. **Header** — name, role, quarter, period
 2. **Stats Grid** — PRs merged, epics owned, tickets resolved, epics completed
 3. **Key Achievements & Accomplishments** — narrative paragraphs (What → How → Impact)
-4. **Q{N} {YEAR} Performance Goals** — 2–3 SMART goal cards showing what was set and accomplished this quarter, with status badge (Completed / In Progress), due date, and strategic alignment tags.
+4. **Q{N} {YEAR} Performance Goals** — 2–3 SMART goal cards showing what was set and accomplished this quarter, with status badge (Completed / In Progress), due date, and strategic alignment tags. Add CSS for `.goal-card`, `.goal-meta`, `.goal-tag`, `.tag-due`, `.tag-aligns`, `.tag-status-completed`, `.tag-status-inprogress` if not already in the template.
 5. **Alignment with {company} Values & Competencies** — value cards with concrete examples, plus competency behavior cards showing 3–5 behaviors demonstrated this quarter
 6. **GitHub Contributions** — full PR table with links
 7. **Jira Epics & Tickets** — epics grid + resolved tickets grid
-8. **Looking Ahead** — growth card summarizing Q{NEXT_N} focus
+8. **Looking Ahead** — purple growth card summarizing Q{NEXT_N} focus
 
 Replace these placeholders:
 
@@ -176,20 +176,25 @@ Replace these placeholders:
 
 Write the output to: `{QUARTER}-{YEAR}-report.html` in the project root.
 
+**Jira card CSS classes:**
+- `.epic` = purple border (in-progress epics)
+- `.completed` = green border (done/resolved)
+- `.status-done` = green badge | `.status-progress` = orange badge | `.status-new` = blue badge
+
 ---
 
 ## Step 6 — Confirm and Stop
 
 ```
-Report generated.
+✅ Report generated.
 
-Markdown: above
-HTML: {QUARTER}-{YEAR}-report.html
+📄 Markdown: above
+📄 HTML: {QUARTER}-{YEAR}-report.html
 
 Open the HTML file in a browser to review, or say "/qc-export" for PDF instructions.
 ```
 
-**STOP. Wait for user.**
+**→ STOP. Wait for user.**
 
 ---
 

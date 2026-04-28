@@ -50,28 +50,29 @@ Read `data/achievements/{YEAR}/Q{N}_log.md`.
 ## Step 4 — Display Stats
 
 ```
-{QUARTER} {YEAR} QUICK STATS  ({MONTHS})
+📊 {QUARTER} {YEAR} QUICK STATS  ({MONTHS})
 
-GitHub Activity
-  PRs Merged:    {count}
-  Repos Tracked: {repo list}
+💻 GitHub Activity
+├─ PRs Merged:   {count}      (unavailable if GitHub errored)
+└─ Repos Tracked: {repo list}
 
-Jira Activity
-  Epics Owned:      {total}
-  Epics Completed:  {completed}
-  Tickets Resolved: {resolved}
-  By Type: {N} Stories · {N} Tasks · {N} Bugs
+📋 Jira Activity
+├─ Epics Owned:     {total}
+├─ Epics Completed: {completed}
+├─ Tickets Resolved: {resolved}
+└─ By Type: {N} Stories · {N} Tasks · {N} Bugs
 
-Local Logs
-  Achievements:   {count}
-  Challenges:     {count}
-  Collaborations: {count}
-  Total Entries:  {total}
+📝 Local Logs
+├─ Achievements:    {count}
+├─ Challenges:      {count}
+├─ Collaborations:  {count}
+└─ Total Entries:   {total}
 
-/qc-report — full narrative   /qc-preview — see all raw data
+─────────────────────────────
+💡 /qc-report → full narrative   /qc-preview → see all raw data
 ```
 
-**STOP. Do not generate a report or ask questions.**
+**→ STOP. Do not generate a report or ask questions.**
 
 ---
 

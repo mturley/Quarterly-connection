@@ -30,7 +30,7 @@ Read `data/achievements/{YEAR}/Q{N}_log.md`
 
 If file exists with entries:
 ```
-Q{N} {YEAR} LOG ENTRIES
+📝 Q{N} {YEAR} LOG ENTRIES
 
 [2025-12-15] | Achievement | Shipped new dashboard feature
 [2025-12-14] | Challenge | Fixed critical production bug
@@ -39,18 +39,18 @@ Q{N} {YEAR} LOG ENTRIES
 
 Total: {count} entries
 
-Commands:
+💡 Commands:
    /qc-log - Add new entry
    /qc-edit - Edit or delete entries
 ```
 
 If file doesn't exist or is empty:
 ```
-Q{N} {YEAR} LOG ENTRIES
+📝 Q{N} {YEAR} LOG ENTRIES
 
 No entries yet for this quarter.
 
-Start logging with:
+💡 Start logging with:
    /qc-log Shipped new feature with 99% test coverage
 ```
 

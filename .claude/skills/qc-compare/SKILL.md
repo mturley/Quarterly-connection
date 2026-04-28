@@ -33,33 +33,33 @@ gh search prs --author={username} --repo={owner}/{repo} --merged={START}..{END} 
 ### Step 3: Display Comparison
 
 ```
-QUARTER COMPARISON: Q{A} vs Q{B} {YEAR}
+📊 QUARTER COMPARISON: Q{A} vs Q{B} {YEAR}
 
 Metric                Q{A}      Q{B}      Change
 ──────────────────────────────────────────────────
-PRs Merged            8         13        +62%
-Epics Owned           6         10        +67%
-Epics Completed       3         7         +133%
-Tickets Resolved      18        25        +39%
-Log Entries           6         12        +100%
+PRs Merged            8         13        +62% ⬆️
+Epics Owned           6         10        +67% ⬆️
+Epics Completed       3         7         +133% ⬆️
+Tickets Resolved      18        25        +39% ⬆️
+Log Entries           6         12        +100% ⬆️
 
-HIGHLIGHTS
+📈 HIGHLIGHTS
 
-Biggest Improvement: Epics Completed (+133%)
-Consistent Growth: All metrics improved
-Strong Quarter: Q{B} shows significant progress
+🔥 Biggest Improvement: Epics Completed (+133%)
+📊 Consistent Growth: All metrics improved
+💪 Strong Quarter: Q{B} shows significant progress
 
-Tips:
-  Your PR output increased - great code velocity!
-  Epic completion rate improved substantially
-  Consider logging more frequently to capture all wins
+💡 Tips:
+• Your PR output increased - great code velocity!
+• Epic completion rate improved substantially
+• Consider logging more frequently to capture all wins
 ```
 
 ### Change Indicators
 
-- Increase (positive)
-- Decrease (negative)
-- No change
+- ⬆️ Increase (green positive)
+- ⬇️ Decrease (red/yellow)
+- ➡️ No change
 
 ### Step 4: Stop
 

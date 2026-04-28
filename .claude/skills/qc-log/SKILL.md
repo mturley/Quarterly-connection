@@ -49,6 +49,11 @@ File path: `data/achievements/{YEAR}/Q{N}_log.md`
 [YYYY-MM-DD] | {Category} | {Description}
 ```
 
+Example:
+```
+[2025-12-16] | Achievement | Shipped new auth service reducing latency by 40%
+```
+
 ### Step 5: Append to Log File
 
 - If file doesn't exist, create it with a header:
@@ -63,7 +68,7 @@ File path: `data/achievements/{YEAR}/Q{N}_log.md`
 ### Step 6: Confirm and Stop
 
 ```
-Logged to Q{N} {YEAR}:
+✅ Logged to Q{N} {YEAR}:
 [{date}] | {Category} | {description}
 
 Anything else to add?
@@ -76,3 +81,23 @@ Anything else to add?
 - Do NOT check company context
 - After confirming, STOP and wait for user input
 - Keep responses brief and efficient
+
+## Examples
+
+**Input:** `/qc-log Shipped new dashboard feature with 99% test coverage`
+**Output:**
+```
+✅ Logged to Q4 2025:
+[2025-12-16] | Achievement | Shipped new dashboard feature with 99% test coverage
+
+Anything else to add?
+```
+
+**Input:** `/qc-log [Challenge]: Debugged critical memory leak in production`
+**Output:**
+```
+✅ Logged to Q4 2025:
+[2025-12-16] | Challenge | Debugged critical memory leak in production
+
+Anything else to add?
+```

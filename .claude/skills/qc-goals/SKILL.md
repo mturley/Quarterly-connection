@@ -13,32 +13,32 @@ View and set career goals.
 Read `config/company-context.json` and display career_goals section:
 
 ```
-CAREER GOALS - Q{N} {YEAR}
+🎯 CAREER GOALS - Q{N} {YEAR}
 
-Short-term (This Quarter):
-  {goal 1}
-  {goal 2}
-  {goal 3}
+📌 Short-term (This Quarter):
+• {goal 1}
+• {goal 2}
+• {goal 3}
 
-Long-term (This Year):
-  {goal 1}
-  {goal 2}
+🔭 Long-term (This Year):
+• {goal 1}
+• {goal 2}
 
-Skills to Develop:
-  {skill 1}
-  {skill 2}
-  {skill 3}
+📚 Skills to Develop:
+• {skill 1}
+• {skill 2}
+• {skill 3}
 
-To update goals: /qc-goals set
+💡 To update goals: /qc-goals set
 ```
 
 If no goals set:
 ```
-CAREER GOALS
+🎯 CAREER GOALS
 
 No goals set yet for this quarter.
 
-Set your goals with: /qc-goals set
+💡 Set your goals with: /qc-goals set
 ```
 
 ### `/qc-goals set` - Set Goals
@@ -46,7 +46,7 @@ Set your goals with: /qc-goals set
 Ask questions one at a time:
 
 ```
-Let's set your goals for Q{N} {YEAR}
+🎯 Let's set your goals for Q{N} {YEAR}
 
 Q1: What are your 2-3 short-term goals for this quarter?
 ```
@@ -77,16 +77,18 @@ Save to `config/company-context.json` under `career_goals`:
 
 Confirm:
 ```
-Goals saved for Q{N} {YEAR}!
+✅ Goals saved for Q{N} {YEAR}!
 
-Short-term:
-  {goals...}
+📌 Short-term:
+• {goals...}
 
-Long-term:
-  {goals...}
+🔭 Long-term:
+• {goals...}
 
-Skills:
-  {skills...}
+📚 Skills:
+• {skills...}
+
+Good luck achieving your goals! 🚀
 ```
 
 ## Behavior
